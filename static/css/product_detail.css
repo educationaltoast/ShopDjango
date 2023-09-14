@@ -1,0 +1,13 @@
+.container {
+    height: 500px;
+    width:500px;
+}
+
+.images {
+    object-fit: cover;
+}
+
+#carousel-head {
+    height: 500px;
+    width: 500px;
+}

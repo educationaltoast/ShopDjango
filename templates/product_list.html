@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block load %}
+	{% load static %}
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+
+	<div class="container">
+        <ul class="list_group">
+
+            {% for product in product_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'product_detail' product.id %}">
+                        {{ product.title }}
+
+                    </a>
+                    {% for image in image_list %}
+                    	{% if image.product == product %}
+                            <img src="{{ image.image.url }}" height="300" width="300">
+                        {% endif %}
+                    {% endfor %}
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+
