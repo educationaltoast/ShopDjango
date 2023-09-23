@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 {% endblock %}
 {% block content %}
-	{{ object.title }}
-    {{ object.description }}
-    <div id="carousel-head" class="carousel slide" data-bs-ride="carousel" >
+    <h3>{{ object.title }}</h3>
+    <p>{{ object.description }}</p>
+    <div id="carousel-head" class="carousel slide overflow-hidden" data-bs-ride="carousel" >
         <div class="carousel-indicators">
             {% for image in image_list %}
                 {% if forloop.first %}

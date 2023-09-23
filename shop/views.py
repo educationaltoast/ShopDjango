@@ -8,7 +8,12 @@ class ProductCreateView(CreateView):
     model = Product
     template_name = "product_create.html"
     success_url = 'image'
-    fields = "__all__"
+    fields = ["title", "category", "price", "description",]
+
+    def form_valid(self, form):
+        form.instance.seller = self.request.user
+        return super().form_valid(form)
+
 
 
 

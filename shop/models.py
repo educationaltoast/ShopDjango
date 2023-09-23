@@ -1,5 +1,8 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 class Category(models.Model):
     title = models.CharField(max_length=30)
     image = models.ImageField()
@@ -12,6 +15,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
     description = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
     class Meta:
         verbose_name_plural = "products"
     def __str__(self):
